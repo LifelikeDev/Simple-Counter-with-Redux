@@ -1,6 +1,7 @@
 // component and variable imports
 import React from "react";
 import Counter from "./Components/Counter";
+import Modal from "./Components/Modal";
 // import { DECREASE, RESET, INCREASE } from "./action-variables";
 
 // redux and react-redux imports
@@ -34,9 +35,10 @@ const store = createStore(
 const App = () => {
   return (
     <main className="wrapper">
-      <h1>Simple Counter</h1>
       <Provider store={store}>
+        <h1>Simple Counter</h1>
         <Counter oddThing={{ boys: "gossips" }} />
+        <Modal />
       </Provider>
     </main>
   );

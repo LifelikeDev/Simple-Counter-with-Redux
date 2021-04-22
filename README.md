@@ -1,3 +1,8 @@
+# Simple Counter with Redux
+This is a simple counter app built with React and Redux
+
+<hr>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

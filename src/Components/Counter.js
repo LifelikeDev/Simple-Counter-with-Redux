@@ -1,10 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
-import { DECREASE, RESET, INCREASE } from "../action-variables";
+import {
+  decreaseCounter,
+  resetCounter,
+  increaseCounter,
+  openModalFunc,
+} from "../action-variables";
 
 const Counter = (props) => {
   //   const [count, setCount] = React.useState(43);
-  const { count: num, slogan, increase, reset, decrease } = props;
+  const {
+    count: num,
+    slogan,
+    increaseCounter,
+    resetCounter,
+    decreaseCounter,
+    openModalFunc,
+  } = props;
 
   return (
     <section className="counter-box">
@@ -12,13 +24,22 @@ const Counter = (props) => {
       <h2>{num}</h2>
       <h3>{slogan}</h3>
       <div className="btn-box">
-        <button className="btn" onClick={decrease}>
+        <button className="btn" onClick={decreaseCounter}>
           Decrease
         </button>
-        <button className="btn" onClick={reset}>
+        <button
+          className="btn"
+          onClick={() => {
+            resetCounter();
+            openModalFunc(
+              "You unclocked a Mystery",
+              "Your counter will be reset. This is just a notification of this app feature. Continue to have a good time using our app."
+            );
+          }}
+        >
           Reset
         </button>
-        <button className="btn" onClick={increase}>
+        <button className="btn" onClick={increaseCounter}>
           Increase
         </button>
       </div>
@@ -35,16 +56,31 @@ function mapStateToProps({ countState: { count, slogan } }) {
   };
 }
 
-// accessing dispatch functions in this component
-function mapDispatchToProps(dispatch, ownProps) {
-  console.log({ ownProps });
+// accessing dispatch functions / object in this component
+const mapDispatchToProps = {
+  increaseCounter,
+  resetCounter,
+  decreaseCounter,
+  openModalFunc,
+};
 
-  // return dispatch types
-  return {
-    increase: () => dispatch({ type: INCREASE }),
-    reset: () => dispatch({ type: RESET }),
-    decrease: () => dispatch({ type: DECREASE }),
-  };
-}
+/*--------------  OR  --------------*/
+
+// function mapDispatchToProps(dispatch) {
+//   // return dispatch types
+//   return {
+//     increase: () => dispatch(increaseCounter()),
+//     reset: () => {
+//       dispatch(resetCounter());
+//       dispatch(
+//         openModalFunc(
+//           "You unclocked a Mystery",
+//           "Your counter will be reset. This is just a notification of this app feature. Continue to have a good time using our app."
+//         )
+//       );
+//     },
+//     decrease: () => dispatch(decreaseCounter()),
+//   };
+// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter); // provides access to state values

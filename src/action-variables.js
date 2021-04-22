@@ -18,3 +18,26 @@ const GET_PRODUCTS = "GET_PRODUCTS";
 export { SET_LOADING, GET_PRODUCTS };
 
 // action creators
+function decreaseCounter() {
+  return { type: DECREASE };
+}
+
+function resetCounter() {
+  return { type: RESET };
+}
+
+function increaseCounter() {
+  return { type: INCREASE };
+}
+
+function openModalFunc(name, text) {
+  return {
+    type: OPEN_MODAL,
+    payload: {
+      name,
+      text,
+    },
+  };
+}
+
+export { decreaseCounter, resetCounter, increaseCounter, openModalFunc };

@@ -14,12 +14,6 @@ import countReducer from "./countReducer";
 import modalReducer from "./modalReducer";
 import productReducer from "./productReducer";
 
-// // init defaultState
-// const defaultState = {
-//   count: 58,
-//   slogan: "shake and bake",
-// };
-
 // Store setup
 const store = createStore(
   /* Combining reducers with the combineReducers function  */

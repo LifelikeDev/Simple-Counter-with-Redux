@@ -75,7 +75,7 @@ body {
   display: none;
 }
 
-.modal-overlay.reveal {
+.modal-overlay.revealed {
   background-color: rgba(0, 0, 0, 0.445);
   display: flex;
   align-items: center;
@@ -92,7 +92,7 @@ body {
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  height: 45vh;
+  height: 40vh;
   margin: 0 auto;
   padding: 0.8rem 1rem;
   width: clamp(200px, 400px, 85%);
